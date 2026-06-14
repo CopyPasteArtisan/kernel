@@ -205,7 +205,7 @@ jobs:
           docker_image: ophub/armbian-${{ inputs.docker_image }}:arm64
 
       - name: Upload Kernel to Release
-        uses: softprops/action-gh-release@v3
+        uses: ophub/upload-to-releases@main
         if: ${{ env.PACKAGED_STATUS == 'success' && !cancelled() }}
         with:
           tag: kernel-stable
@@ -214,6 +214,7 @@ jobs:
           remove_artifacts: false
           replaces_artifacts: true
           make_latest: false
+          gh_token: ${{ secrets.GITHUB_TOKEN }}
           body: |
             - These are Mainline LTS(Long Term Support) kernels that provide `stable` support for Armbian and OpenWrt.
             - It works with most `Amlogic`, `Rockchip`, and `Allwinner` devices. For specific details, please refer to the instructions on the homepage of repository.
