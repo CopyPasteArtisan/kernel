@@ -74,10 +74,11 @@ on:
         default: "-rk35xx"
         type: choice
         options:
-          - -rk35xx-user
-          - -rk35xx-user
+          - -rk35xx
           - -rk35xx-custom
           - -rk35xx-local
+          - -rk35xx-lts
+          - -rk35xx-user
           - -yourname
       kernel_config:
         description: "Set the path of kernel .config"
